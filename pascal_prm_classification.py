@@ -217,7 +217,7 @@ def main_worker(gpu, ngpus_per_node, args):
     if args.pretrained:
         print("=> using pre-trained model '{}'".format(args.arch))
         sys.stdout.flush()
-
+        
         if args.arch == 'fc_resnet50':
             model = fc_resnet50(num_classes=20, pretrained=True)
 
@@ -305,7 +305,7 @@ def main_worker(gpu, ngpus_per_node, args):
     #    ]))
 
     img_transform = transforms.Compose([
-            #transforms.RandomResizedCrop(224),
+            #transforms.RandomResizedCrop(448),
             transforms.Resize((args.image_size,args.image_size)),
             transforms.RandomHorizontalFlip(),
             transforms.ToTensor(),
